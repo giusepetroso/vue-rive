@@ -1,7 +1,9 @@
 # vue-rive
 
 > Warning: 
-> This package actually depends on [rive-js v0.7.7](https://www.npmjs.com/package/rive-js/v/0.7.7) package 
+>
+> This package actually depends on [rive-js v0.7.7](https://www.npmjs.com/package/rive-js/v/0.7.7) package.
+>
 > For the rive-js > v0.6.x versions you have to load a v7 format .riv file!
 
 ## Package installation
