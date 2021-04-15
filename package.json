@@ -1,18 +1,30 @@
 {
   "name": "vue-rive",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+  "version": "0.0.1",
+  "main": "dist/vue-rive.umd.js",
+  "module": "dist/vue-rive.esm.js",
+  "unpkg": "dist/vue-rive.min.js",
+  "browser": {
+    "./canvas": "src/RiveCanvas.vue"
   },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+  "scripts": {
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-rive.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-rive.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-rive.min.js"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "vue-template-compiler": "^2.6.11"
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "rollup": "^1.17.0",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "rive-canvas": "^0.6.5"
   }
 }
