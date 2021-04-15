@@ -1,6 +1,6 @@
 {
   "name": "vue-rive",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/vue-rive.umd.js",
   "module": "dist/vue-rive.esm.js",
   "unpkg": "dist/vue-rive.min.js",
@@ -25,6 +25,6 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "rive-canvas": "^0.6.5"
+    "rive-js": "0.7.7"
   }
 }
