@@ -4,14 +4,34 @@
   "main": "dist/vue-rive.umd.js",
   "module": "dist/vue-rive.esm.js",
   "unpkg": "dist/vue-rive.min.js",
+  "license": "MIT",
   "browser": {
     "./canvas": "src/RiveCanvas.vue"
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ],
+    "*.vue": [
+      "prettier --write"
+    ]
+  },
   "scripts": {
-    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build": "run-s build:*",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-rive.umd.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-rive.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-rive.min.js"
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-rive.min.js",
+    "lint": "run-s lint:*",
+    "lint:prettier": "prettier --write \"./(src|build)/**/*.(js|vue)\"",
+    "test": "run-s test:*",
+    "test:prettier": "prettier --check \"./(src|build)/**/*.(js|vue)\"",
+    "test:unit": "echo '[warn] no unit test is provided'"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",
@@ -19,11 +39,14 @@
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
-    "@vue/compiler-sfc": "^3.2.2",
     "@vue/composition-api": "^1.1.1",
+    "lint-staged": "^11.1.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
     "rollup": "^1.17.0",
     "rollup-plugin-vue": "6.0.0",
-    "vue": "^3.2.2"
+    "vue": "^3.2.2",
+    "yorkie": "^2.0.0"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0-rc.1",
