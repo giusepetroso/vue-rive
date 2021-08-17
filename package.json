@@ -1,6 +1,6 @@
 {
   "name": "vue-rive",
-  "version": "0.0.3",
+  "version": "0.1.4",
   "main": "dist/vue-rive.umd.js",
   "module": "dist/vue-rive.esm.js",
   "unpkg": "dist/vue-rive.min.js",
@@ -20,6 +20,7 @@
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
     "rollup": "^1.17.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-vue": "^5.0.1",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
