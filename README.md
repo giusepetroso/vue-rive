@@ -8,13 +8,13 @@
 
 ## Package installation
 
-```
+```console
 npm i vue-rive
 ```
 
 ## Simple Example
 
-```
+```html
 <template>
     <div>
         <rive-canvas
@@ -73,11 +73,13 @@ If you want to be able to control the animation you have to get the Rive Instanc
 The simplest way to achieve this is to get it from the load event (as in the example).
 
 First bind an handler to load event 
-```
-@load="handleEvent"
+```html
+<rive-canvas
+    @load="handleEvent"
+/>
 ```
 Then store the instance reference to a variable
-```
+```js
 handleEvent(ev, rive) {
     if (ev.type == "load") {
         this.riveInstance = rive;
