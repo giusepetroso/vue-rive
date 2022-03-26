@@ -1,14 +1,10 @@
-import { h, ref, watchEffect, defineComponent } from 'vue'
+import { h, ref, watchEffect, defineComponent, unref } from 'vue'
 import { Rive, Layout, Fit, Alignment } from 'rive-js'
 
 export default defineComponent({
   name: 'RiveCanvas',
   props: {
     // canvas
-    canvasId: {
-      type: String,
-      required: true,
-    },
     canvasWidth: {
       type: Number,
       required: true,
@@ -38,13 +34,16 @@ export default defineComponent({
     animations: Array | String,
   },
   emits: ['load', 'loaderror', 'play', 'pause', 'loop', 'stop'],
-  setup(props, { emit }) {
+  setup(props, { emit, expose }) {
     const canvas = ref(null)
+    // const riveInstance = ref(null)
+    let rive = null
 
     watchEffect(() => {
       // Rive instantiation
       if (canvas.value) {
-        const rive = new Rive({
+        // const rive = new Rive({
+        rive = new Rive({
           src: props.riveFileSrc,
           canvas: canvas.value,
           autoplay: props.autoplay,
@@ -55,6 +54,7 @@ export default defineComponent({
           artboard: props.artboard,
           animations: props.animations,
         })
+        // riveInstance.value = rive
 
         // Event wrapping
         rive.on('load', (ev) => {
@@ -83,12 +83,18 @@ export default defineComponent({
       }
     })
 
+    function getInstance() {
+      //   return unref(riveInstance)
+      return rive
+    }
+
+    expose({ getInstance })
+
     return () =>
       h('canvas', {
         ref: canvas,
-        id: props.canvasId,
-        with: props.canvasWidth,
-        with: props.canvasHeight,
+        width: props.canvasWidth,
+        height: props.canvasHeight,
       })
   },
 })

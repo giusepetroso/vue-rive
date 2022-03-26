@@ -48,5 +48,8 @@
     "rollup-plugin-vue": "6.0.0",
     "vue": "^3.2.2",
     "yorkie": "^2.0.0"
+  },
+  "dependencies": {
+    "rive-js": "^0.7.33"
   }
 }
