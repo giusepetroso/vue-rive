@@ -7,5 +7,5 @@ export default {
     exports: 'named',
   },
   plugins: [commonjs(), vue()],
-  external: ['rive-canvas'],
+  external: ['rive-canvas', 'vue-demi', 'rive-js'],
 }
