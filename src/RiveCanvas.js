@@ -1,4 +1,4 @@
-import { h, ref, watchEffect, defineComponent } from 'vue-demi'
+import { h, ref, watchEffect, defineComponent } from 'vue'
 import { Rive, Layout, Fit, Alignment } from 'rive-js'
 
 export default defineComponent({
@@ -39,7 +39,7 @@ export default defineComponent({
   },
   emits: ['load', 'loaderror', 'play', 'pause', 'loop', 'stop'],
   setup(props, { emit }) {
-    const canvas = ref()
+    const canvas = ref(null)
 
     watchEffect(() => {
       // Rive instantiation

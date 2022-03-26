@@ -5,7 +5,12 @@ export default {
   output: {
     name: 'RiveCanvas',
     exports: 'named',
+    globals: {
+      vue: 'vue',
+      'vue-demi': 'vueDemi',
+      'rive-js': 'riveJs',
+    },
   },
   plugins: [commonjs(), vue()],
-  external: ['rive-canvas', 'vue-demi', 'rive-js'],
+  external: ['rive-canvas', 'vue', 'vue-demi', 'rive-js'],
 }
